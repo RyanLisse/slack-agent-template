@@ -6,6 +6,7 @@ const logLevel =
   process.env.NODE_ENV === "development" ? LogLevel.DEBUG : LogLevel.INFO;
 
 const receiver = new VercelReceiver({
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
   logLevel,
 });
 
