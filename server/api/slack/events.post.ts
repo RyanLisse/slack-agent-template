@@ -6,9 +6,9 @@ const handler = createHandler(app, receiver);
 let isInitialized = false;
 
 export default defineEventHandler(async (event) => {
-  // Initialize the app on first request
+  // Initialize the app on first request (use init() not start() for serverless)
   if (!isInitialized) {
-    await app.start();
+    await app.init();
     isInitialized = true;
   }
 
